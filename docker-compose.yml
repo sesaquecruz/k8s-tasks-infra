@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:8.0.32
+    environment:
+      - MYSQL_ROOT_PASSWORD=root123
+      - MYSQL_USER=tasks-app
+      - MYSQL_PASSWORD=tasks-app123
+      - MYSQL_DATABASE=tasks
+    ports:
+      - "3306:3306"
+  migrate:
+    container_name: migrate
+    image: sesaquecruz/tasks-app-database:1.0.0
+    environment:
+      - FLYWAY_URL=jdbc:mysql://mysql:3306/tasks
+      - FLYWAY_USER=tasks-app
+      - FLYWAY_PASSWORD=tasks-app123
+    command: ["migrate"]

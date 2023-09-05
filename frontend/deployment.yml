@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: tasks-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: sesaquecruz/tasks-app-frontend:0.2.1
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "150Mi"
+            cpu: "150m"
+        ports:
+        - containerPort: 8080
+        envFrom:
+        - secretRef:
+            name: frontend-secret
+        - configMapRef:
+            name: frontend-cfgmap

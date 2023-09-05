@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-cfgmap
+  namespace: tasks-app
+data:
+  SPRING_PROFILES_ACTIVE: production
+  JWT_ISSUER: https://dev-j6pmr0ckitt2062o.us.auth0.com/
+  JWT_JWKS: https://dev-j6pmr0ckitt2062o.us.auth0.com/.well-known/jwks.json

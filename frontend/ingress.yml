@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: frontend-ingress
+  namespace: tasks-app
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-iss"
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: git.tasks.sesaque.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: frontend-service
+                port:
+                  number: 80
+  tls:
+    - hosts:
+      - git.tasks.sesaque.com
+      secretName: frontend-letsencrypt-secret
