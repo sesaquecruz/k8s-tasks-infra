@@ -15,12 +15,32 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: sesaquecruz/tasks-app-frontend:0.2.1
+        image: sesaquecruz/react-tasks-app:0.3.0
         imagePullPolicy: Always
         resources:
           limits:
             memory: "150Mi"
             cpu: "150m"
+        startupProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+          periodSeconds: 5
+          failureThreshold: 30
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+          periodSeconds: 5
+          failureThreshold: 1
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+          periodSeconds: 5
+          failureThreshold: 3
+          timeoutSeconds: 5
+          successThreshold: 1
         ports:
         - containerPort: 8080
         envFrom:
