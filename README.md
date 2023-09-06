@@ -10,6 +10,8 @@ A simple infrastructure view, ignoring: config maps, secrets, volumes, issuers, 
 
 ## Applications
 
+Currently the applications are running in a Kubernetes cluster using GKE on GCP.
+
 - [Tasks API (swagger documentation)](https://git.tasks.api.sesaque.com/api/v1/swagger-ui/index.html)
 - [Tasks App (web app)](https://git.tasks.sesaque.com/)
 
