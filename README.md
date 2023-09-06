@@ -1,4 +1,4 @@
-# Tasks Kubernetes Infrastructure
+# Tasks App Kubernetes Infrastructure
 
 This repository contains configuration files for setting up a Kubernetes cluster and deploying the components of the Tasks App. It utilizes an Nginx Ingress Controller as the single external entry point.
 
