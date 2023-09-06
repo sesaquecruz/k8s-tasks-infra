@@ -15,11 +15,31 @@ spec:
     spec:
       containers:
       - name: backend
-        image: sesaquecruz/tasks-app-backend:1.1.0
+        image: sesaquecruz/java-tasks-api:1.2.0
         resources:
           limits:
             memory: "700Mi"
             cpu: "350m"
+        startupProbe:
+          httpGet:
+            path: /api/v1/actuator/health
+            port: 8080
+          periodSeconds: 5
+          failureThreshold: 30
+        readinessProbe:
+          httpGet:
+            path: /api/v1/actuator/health
+            port: 8080
+          periodSeconds: 5
+          failureThreshold: 1
+        livenessProbe:
+          httpGet:
+            path: /api/v1/actuator/health
+            port: 8080
+          periodSeconds: 5
+          failureThreshold: 3
+          timeoutSeconds: 5
+          successThreshold: 1
         ports:
         - containerPort: 8080
         envFrom:
