@@ -16,6 +16,23 @@ spec:
       containers:
       - name: mysql
         image: mysql:8.0.32
+        startupProbe:
+          exec:
+            command: ["mysqladmin", "-u$MYSQL_USER", "-p$MYSQL_PASSWORD", "ping"]
+          periodSeconds: 5
+          failureThreshold: 30
+        readinessProbe:
+          exec:
+            command: ["mysqladmin", "-u$MYSQL_USER", "-p$MYSQL_PASSWORD", "ping"]
+          periodSeconds: 5
+          failureThreshold: 1
+        livenessProbe:
+          exec:
+            command: ["mysqladmin", "-u$MYSQL_USER", "-p$MYSQL_PASSWORD", "ping"]
+          periodSeconds: 5
+          failureThreshold: 3
+          timeoutSeconds: 5
+          successThreshold: 1
         ports:
         - containerPort: 3306
         envFrom:
