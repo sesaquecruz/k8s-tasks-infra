@@ -19,11 +19,11 @@ spec:
         image: sesaquecruz/java-tasks-api:1.2.0
         resources:
           requests: 
-            cpu: "0.25"
-            memory: 500Mi
+            cpu: 150m
+            memory: 250Mi
           limits:
-            cpu: "0.5"
-            memory: 750Mi
+            cpu: 300m
+            memory: 500Mi
         startupProbe:
           httpGet:
             path: /api/v1/actuator/health

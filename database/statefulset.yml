@@ -19,11 +19,11 @@ spec:
         image: mysql:8.0.32
         resources:
           requests: 
-            cpu: "0.5"
-            memory: 500Mi
+            cpu: 200m
+            memory: 350Mi
           limits:
-            cpu: "1"
-            memory: 1Gi
+            cpu: 400m
+            memory: 700Mi
         startupProbe:
           exec:
             command: ["mysqladmin", "-u$MYSQL_USER", "-p$MYSQL_PASSWORD", "ping"]
