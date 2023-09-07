@@ -4,13 +4,14 @@ metadata:
   name: mysql-flyway
   namespace: tasks-app
 spec:
+  serviceAccount: tasks-app-account
   containers:
   - name: mysql-flyway
     image: sesaquecruz/mysql-tasks-database:1.0.0-flyway
     resources:
       limits:
-        cpu: "0.15"
-        memory: 150Mi
+        cpu: "0.2"
+        memory: 200Mi
     envFrom:
     - secretRef:
         name: mysql-flyway-secret

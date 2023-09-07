@@ -4,7 +4,7 @@ metadata:
   name: frontend-ingress
   namespace: tasks-app
   annotations:
-    cert-manager.io/cluster-issuer: "letsencrypt-iss"
+    cert-manager.io/cluster-issuer: "letsencrypt-issuer"
     ingress.kubernetes.io/force-ssl-redirect: "true"
 spec:
   ingressClassName: nginx

@@ -13,9 +13,17 @@ spec:
       labels:
         app: mysql
     spec:
+      serviceAccount: tasks-app-account
       containers:
       - name: mysql
         image: mysql:8.0.32
+        resources:
+          requests: 
+            cpu: "0.5"
+            memory: 500Mi
+          limits:
+            cpu: "1"
+            memory: 1Gi
         startupProbe:
           exec:
             command: ["mysqladmin", "-u$MYSQL_USER", "-p$MYSQL_PASSWORD", "ping"]

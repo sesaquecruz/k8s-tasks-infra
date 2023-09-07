@@ -13,13 +13,17 @@ spec:
       labels:
         app: backend
     spec:
+      serviceAccount: tasks-app-account
       containers:
       - name: backend
         image: sesaquecruz/java-tasks-api:1.2.0
         resources:
+          requests: 
+            cpu: "0.25"
+            memory: 500Mi
           limits:
-            memory: "700Mi"
-            cpu: "350m"
+            cpu: "0.5"
+            memory: 750Mi
         startupProbe:
           httpGet:
             path: /api/v1/actuator/health

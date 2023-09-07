@@ -13,14 +13,17 @@ spec:
       labels:
         app: frontend
     spec:
+      serviceAccount: tasks-app-account
       containers:
       - name: frontend
         image: sesaquecruz/react-tasks-app:0.3.0
-        imagePullPolicy: Always
         resources:
+          requests: 
+            cpu: "0.15"
+            memory: 150Mi
           limits:
-            memory: "150Mi"
-            cpu: "150m"
+            cpu: "0.25"
+            memory: 250Mi
         startupProbe:
           httpGet:
             path: /healthz
