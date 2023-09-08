@@ -30,6 +30,8 @@ kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.pas
 
 Login:
 
+- The web app can be accessed on localhost:8080.
+
 ```
 argocd login localhost:8080
 ```
@@ -55,4 +57,24 @@ Add app:
 
 ```
 argocd app create <app-name> --repo <repository-url> --path <k8s-scripts-path> --dest-server <cluster-address> --dest-namespace <namespace>
+```
+
+View app:
+
+```
+argocd app get <app-name>
+```
+
+Sync app:
+
+```
+argocd app sync <app-name>
+```
+
+Enable autosync:
+
+- The default sync interval is 3 minutes.
+
+```
+argocd app set <app-name> --sync-policy auto --self-heal --auto-prune
 ```
