@@ -1,6 +1,6 @@
 #!/bin/bash
 
-create_ingress_nginx:
+create_ingress_controller_nginx:
 	helm upgrade --install ingress-nginx ingress-nginx \
 		--repo https://kubernetes.github.io/ingress-nginx \
 		--namespace ingress-nginx --create-namespace
@@ -10,16 +10,18 @@ create_cert-manager:
 	kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.4/cert-manager.yaml
 
 create_issuer:
-	kubectl apply -f issuer.yml
-
-create_namespace:
-	kubectl create namespace tasks-app
+	kubectl apply -f security/issuer.yml
 
 create_account:
-	kubectl apply -f account.yml
+	kubectl create namespace tasks-app
+	kubectl apply -f security/account.yml
 
-create_context:
+create_project_context:
 	kubectl config set-context tasks-app \
 		--namespace=tasks-app \
 		--cluster=gke_basic-decoder-394706_us-central1-c_cluster-portfolio \
 		--user=gke_basic-decoder-394706_us-central1-c_cluster-portfolio
+
+create_argocd_operator:
+	kubectl create namespace argocd
+	kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
