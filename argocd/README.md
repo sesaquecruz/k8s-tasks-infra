@@ -24,7 +24,9 @@ Create proxy:
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 ```
 
-Get initial password (username is `admin`):
+Get initial password:
+
+- The username is `admin`.
 
 ```
 kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d
@@ -54,14 +56,20 @@ argocd cluster add <current-context>
 
 Add app:
 
-- Repository url ends with .git.
+- Repository url must ends with .git.
 - Cluster address showed on previous command output.
 
 ```
 argocd app create <app-name> --repo <repository-url> --path <k8s-scripts-path> --dest-server <cluster-address> --dest-namespace <namespace>
 ```
 
-View app:
+View all apps:
+
+```
+argocd app list
+```
+
+View app details:
 
 ```
 argocd app get <app-name>
@@ -73,10 +81,10 @@ Sync app:
 argocd app sync <app-name>
 ```
 
-Enable autosync:
+Enable autosync to `main` branch:
 
 - The default sync interval is 3 minutes.
 
 ```
-argocd app set <app-name> --sync-policy auto --self-heal --auto-prune
+argocd app set <app-name> --revision main --sync-policy auto --auto-prune --self-heal
 ```
