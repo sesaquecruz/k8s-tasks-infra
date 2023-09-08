@@ -21,3 +21,9 @@ create_project_context:
 		--namespace=tasks-app \
 		--cluster=gke_basic-decoder-394706_us-central1-c_cluster-portfolio \
 		--user=gke_basic-decoder-394706_us-central1-c_cluster-portfolio
+
+select_project_context:
+	kubectl config use-context tasks-app
+
+show_project_components:
+	kubectl get all -n tasks-app
