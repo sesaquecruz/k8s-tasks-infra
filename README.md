@@ -17,6 +17,10 @@ Currently the applications are running in a Kubernetes cluster using GKE on GCP.
 
 ## Repositories
 
+Instructions:
+
+- [Argo CD (readme)](./argocd/README.md)
+
 GitHub:
 
 - [Tasks API (backend)](https://github.com/sesaquecruz/java-tasks-api)
