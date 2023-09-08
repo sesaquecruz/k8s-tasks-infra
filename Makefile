@@ -21,7 +21,3 @@ create_project_context:
 		--namespace=tasks-app \
 		--cluster=gke_basic-decoder-394706_us-central1-c_cluster-portfolio \
 		--user=gke_basic-decoder-394706_us-central1-c_cluster-portfolio
-
-create_argocd_operator:
-	kubectl create namespace argocd
-	kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
