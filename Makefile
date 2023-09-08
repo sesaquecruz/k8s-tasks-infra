@@ -12,7 +12,7 @@ create_cert-manager:
 create_issuer:
 	kubectl apply -f security/issuer.yml
 
-create_account:
+create_project_account:
 	kubectl create namespace tasks-app
 	kubectl apply -f security/account.yml
 
