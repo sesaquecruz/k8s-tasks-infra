@@ -1,6 +1,6 @@
 #!/bin/bash
 
-create_ingress_controller_nginx:
+create_ingress_controller:
 	helm upgrade --install ingress-nginx ingress-nginx \
 		--repo https://kubernetes.github.io/ingress-nginx \
 		--namespace ingress-nginx --create-namespace
@@ -19,8 +19,8 @@ create_project_account:
 create_project_context:
 	kubectl config set-context tasks-app \
 		--namespace=tasks-app \
-		--cluster=gke_basic-decoder-394706_us-central1-c_cluster-portfolio \
-		--user=gke_basic-decoder-394706_us-central1-c_cluster-portfolio
+		--cluster=gke_basic-decoder-394706_us-east1-b_cluster-1 \
+		--user=gke_basic-decoder-394706_us-east1-b_cluster-1
 
 select_project_context:
 	kubectl config use-context tasks-app
