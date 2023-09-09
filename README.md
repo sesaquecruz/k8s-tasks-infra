@@ -7,7 +7,7 @@ This repository contains the configuration files for setting up a Kubernetes clu
 Currently the applications are running in a Kubernetes cluster using GKE on GCP.
 
 - [Tasks Api (swagger documentation)](https://git.tasks.Api.sesaque.com/Api/v1/swagger-ui/index.html)
-- [Tasks App (web app)](https://git.tasks.sesaque.com/)
+- [Tasks App (web app)](https://git.tasks.sesaque.com)
 
 ## Repositories
 
