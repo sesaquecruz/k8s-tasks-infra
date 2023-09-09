@@ -1,6 +1,6 @@
-# Tasks App Kubernetes Infrastructure
+# Tasks Infra
 
-This repository contains the configuration files for setting up a Kubernetes cluster and deploying the components of Tasks App. It utilizes an Nginx Ingress Controller as the single external entry point.
+This repository contains the configuration files for set up a Kubernetes cluster and deploying the components of Tasks App. It utilizes an Nginx Ingress Controller as the single external entry point.
 
 ## Diagram
 
@@ -12,25 +12,25 @@ A simple infrastructure view, ignoring: config maps, secrets, volumes, issuers, 
 
 Currently the applications are running in a Kubernetes cluster using GKE on GCP.
 
-- [Tasks API (swagger documentation)](https://git.tasks.api.sesaque.com/api/v1/swagger-ui/index.html)
+- [Tasks Api (swagger documentation)](https://git.tasks.Api.sesaque.com/Api/v1/swagger-ui/index.html)
 - [Tasks App (web app)](https://git.tasks.sesaque.com/)
 
 ## Repositories
 
 Instructions:
 
-- [Argo CD (readme)](./argocd/README.md)
+- [Argo CD](./argocd/README.md)
 
 GitHub:
 
-- [Tasks API (backend)](https://github.com/sesaquecruz/java-tasks-api)
-- [Tasks App (frontend)](https://github.com/sesaquecruz/react-tasks-app)
+- [Tasks Api](https://github.com/sesaquecruz/java-tasks-Api)
+- [Tasks App](https://github.com/sesaquecruz/react-tasks-app)
 
 DockerHub:
 
-- [Tasks API (database)](https://hub.docker.com/r/sesaquecruz/mysql-tasks-database/tags)
-- [Tasks API (backend)](https://hub.docker.com/r/sesaquecruz/java-tasks-api/tags)
-- [Tasks App (frontend)](https://hub.docker.com/r/sesaquecruz/react-tasks-app/tags)
+- [Tasks Database](https://hub.docker.com/r/sesaquecruz/mysql-tasks-database/tags)
+- [Tasks Api](https://hub.docker.com/r/sesaquecruz/java-tasks-Api/tags)
+- [Tasks App](https://hub.docker.com/r/sesaquecruz/react-tasks-app/tags)
 
 ## Contributing
 
