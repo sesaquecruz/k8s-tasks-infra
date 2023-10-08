@@ -16,7 +16,7 @@ GitHub:
 DockerHub:
 
 - [Tasks Database](https://hub.docker.com/r/sesaquecruz/mysql-tasks-database/tags)
-- [Tasks Api](https://hub.docker.com/r/sesaquecruz/java-tasks-Api/tags)
+- [Tasks Api](https://hub.docker.com/r/sesaquecruz/java-tasks-api/tags)
 - [Tasks App](https://hub.docker.com/r/sesaquecruz/react-tasks-app/tags)
 
 ## Contributing
